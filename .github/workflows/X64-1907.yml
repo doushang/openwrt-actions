@@ -41,8 +41,8 @@ jobs:
       env: 
         REPO_URL: https://github.com/Lienol/openwrt-actions
       run: git clone --depth 1 $REPO_URL openwrt-config
-  
-      - name: Clone diy
+      
+    - name: Clone diy
       env: 
         REPO_URL: https://github.com/doushang/diy
       run: git clone --depth 1 $REPO_URL diy
