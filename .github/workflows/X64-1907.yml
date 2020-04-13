@@ -41,6 +41,11 @@ jobs:
       env: 
         REPO_URL: https://github.com/Lienol/openwrt-actions
       run: git clone --depth 1 $REPO_URL openwrt-config
+  
+      - name: Clone diy
+      env: 
+        REPO_URL: https://github.com/doushang/diy
+      run: git clone --depth 1 $REPO_URL diy
       
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -49,7 +54,11 @@ jobs:
       run: cd openwrt && ./scripts/feeds install -a
   
     - name: Diy
-      run: cd openwrt && cp -r ./feeds/luci/applications/luci-app-transmission ./package/
+      run: |
+          cd openwrt
+          cp -r ../diy/luci-app-transmission ./package/
+          cp -r ../diy/transmission ./package/
+          cp -r ../diy/transmission-web-control ./package/
   
     - name: Update feeds again
       run: cd openwrt && ./scripts/feeds update -a
