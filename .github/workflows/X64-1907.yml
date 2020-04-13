@@ -49,7 +49,7 @@ jobs:
       run: cd openwrt && ./scripts/feeds install -a
   
     - name: Diy
-      run: cd openwrt && cp ./feeds/luci/applications/luci-app-transmission ./package/
+      run: cd openwrt && cp -r ./feeds/luci/applications/luci-app-transmission ./package/
   
     - name: Update feeds again
       run: cd openwrt && ./scripts/feeds update -a
