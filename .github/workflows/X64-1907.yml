@@ -56,15 +56,10 @@ jobs:
     - name: Diy
       run: |
           cd openwrt
-          cp -r ../diy/luci-app-transmission ./package/
-          cp -r ../diy/transmission ./package/
-          cp -r ../diy/transmission-web-control ./package/
-  
-    - name: Update feeds again
-      run: cd openwrt && ./scripts/feeds update -a
-
-    - name: Install feeds again
-      run: cd openwrt && ./scripts/feeds install -a
+          rm -rf ./package/feeds/luci/luci-app-transmission
+          cp -r ../diy/luci-app-transmission ./package/diy/
+          cp -r ../diy/transmission ./package/diy/
+          cp -r ../diy/transmission-web-control ./package/diy/
   
     - name: Custom configure file
       run: |
