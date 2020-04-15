@@ -56,7 +56,6 @@ jobs:
     - name: Diy
       run: |
           cd openwrt
-          rm -rf ./package/feeds/luci/luci-app-transmission
           cp -r ../diy/luci-app-transmission ./package/diy/
           cp -r ../diy/transmission ./package/diy/
           cp -r ../diy/transmission-web-control ./package/diy/
